@@ -1,4 +1,4 @@
 // Global app controller
 import num from './test';
 
-console.log(`i imported ${num} from enother module called test.js`);
+console.log(`i imported ${num} from enother module called test.js! Variable x is ${x}`);
