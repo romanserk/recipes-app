@@ -34,8 +34,17 @@ const controlSearch = async () => {
     }
 
 }
-
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
+});
+
+// on click recipes list shows next/prev page ( next 10 pecipes)
+elements.searchResPages.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline');
+    if(btn){
+        const goToPage = parseInt(btn.dataset.goto, 10); // base 10: 0 - 9
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+    }
 });

@@ -10,6 +10,7 @@ export const clearInput = () => {
 
 export const clearResults = () => {
     elements.searchResList.innerHTML = '';
+    elements.searchResPages.innerHTML = '';
 };
 
 /* exmple title : 
@@ -61,11 +62,11 @@ const renderRecipe = recipe => {
 
 // type: 'prev' or 'next'
 const createButton = (page, type) => `
-    <button class="btn-inline results__btn--${type}" data-toto=${type === 'prev' ? page - 1 : page + 1}>
+    <button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page - 1 : page + 1}>
+        <span>Page ${type === 'prev' ? page - 1 : page + 1}</span>
         <svg class="search__icon">
             <use href="img/icons.svg#icon-triangle-${type == 'prev' ? 'left' : 'right'}"></use>
         </svg>
-        <span>Page ${type === 'prev' ? page - 1 : page + 1}</span>
     </button>
 `;
 const renderButtons = (page, numResults, resPerPage) => {
@@ -89,9 +90,9 @@ const renderButtons = (page, numResults, resPerPage) => {
     elements.searchResPages.insertAdjacentHTML('afterbegin', button);
 };
 
-export const renderResults = (recipes, page = 2, resPerPage = 10) => {
+export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     // render results for current page
-    const start = (page -1) * resPerPage;
+    const start = (page - 1) * resPerPage;
     const end = page * resPerPage;
     recipes.slice(start, end).forEach(renderRecipe);
 

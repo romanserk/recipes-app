@@ -3,11 +3,11 @@ export const elements = {
     searchInput: document.querySelector('.search__field'),
     searchRes: document.querySelector('.results'),
     searchResList: document.querySelector('.results__list'),
-    searchResPages : document.querySelector('.results__pages')
+    searchResPages: document.querySelector('.results__pages')
 };
 
 export const elementStrings = {
-loader: 'loader'
+    loader: 'loader'
 };
 
 export const renderLoader = parent => {
