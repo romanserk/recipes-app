@@ -193,7 +193,7 @@ const controlLike = () => {
 
 window.addEventListener('load', () => {
 
-    state.likes = new Likes(); // TODO: remove after testing
+    state.likes = new Likes();
 
     // restore likes
     state.likes.readStorage();
