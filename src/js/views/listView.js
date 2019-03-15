@@ -17,10 +17,14 @@ export const renderItem = item => {
             </button>
         </li>
     `;
-    elements.shopping.insertAdjacentHTML('beforeend', markup);
+    elements.shopping.children[1].insertAdjacentHTML('beforeend', markup);
 };
 
 export const deleteItem = id => {
     const item = document.querySelector(`[data-itemid="${id}"]`);
     if (item) item.parentElement.removeChild(item);
+};
+
+export const clearList = () => {
+    elements.shopping.children[1].innerHTML = '';
 };
